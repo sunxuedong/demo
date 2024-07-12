@@ -1,0 +1,25 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:origin": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md,vue,scss,less}\"",
+    "lint:origin": "eslint \"**/*.{js,ts,jsx,tsx,vue,scss,less}\" --fix",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.scss,.less --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix",
+    "format": "prettier --write --cache .",
+    "format2lint": "npm run format & npm run lint:fix"
+  },
+  "keywords": [],
+  "author": "https://github.com/sunxuedong",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-json": "^4.0.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.2"
+  }
+}
