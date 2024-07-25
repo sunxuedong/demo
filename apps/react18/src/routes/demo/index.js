@@ -62,7 +62,7 @@ const Demo = () => {
     graph.on("canvas:mousedown", (evt) => {
       const { target } = evt;
       if (target && target.get("isAnchor")) {
-        const anchorPoint = target.get("originPoint"); // 获取锚点的起始位置
+        // const anchorPoint = target.get("originPoint"); // 获取锚点的起始位置
         const anchorId = target.get("anchorId"); // 获取锚点的 ID
         const nodeId = target.get("nodeId"); // 获取锚点所属节点的 ID
 
