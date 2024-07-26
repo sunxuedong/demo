@@ -12,6 +12,24 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run-script", "start"],
       "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/apps/vue2",
+      "name": "vue2:serve",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "serve"],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/apps/vue3",
+      "name": "vue3:serve",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "serve"],
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }
