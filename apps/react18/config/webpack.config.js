@@ -310,6 +310,7 @@ module.exports = function (webpackEnv) {
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
+        '@': paths.appSrc,
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
@@ -562,6 +563,7 @@ module.exports = function (webpackEnv) {
         },
       ].filter(Boolean),
     },
+    ignoreWarnings: [/Failed to parse source map/],
     plugins: [
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(

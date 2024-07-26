@@ -166,7 +166,7 @@ importers:
         version: 4.0.0
       sass-loader:
         specifier: ^12.3.0
-        version: 12.6.0(webpack@5.93.0)
+        version: 12.6.0(sass@1.77.8)(webpack@5.93.0)
       semver:
         specifier: ^7.3.5
         version: 7.6.2
@@ -198,9 +198,9 @@ importers:
         specifier: ^6.4.1
         version: 6.6.0(@types/babel__core@7.20.5)(webpack@5.93.0)
     devDependencies:
-      scss:
-        specifier: ^0.2.4
-        version: 0.2.4
+      sass:
+        specifier: ^1.77.8
+        version: 1.77.8
 
   apps/vue2:
     dependencies:
@@ -4121,6 +4121,9 @@ packages:
   immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
 
+  immutable@4.3.7:
+    resolution: {integrity: sha512-1hqclzwYwjRDFLjcFxOM5AYkkG0rpFPpr1RLPMEuGczoS7YA8gLhy8SWXYRAA/XwfEHpfo3cw5JGioS32fnMRw==}
+
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -5098,10 +5101,6 @@ packages:
 
   obuf@1.1.2:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
-
-  ometa@0.2.2:
-    resolution: {integrity: sha512-LZuoK/yjU3FvrxPjUXUlZ1bavCfBPqauA7fsNdwi+AVhRdyk2IzgP3JRnevvjzQ6fKHdUw8YISshf53FmpHrng==}
-    engines: {node: '>= 0.2.0'}
 
   on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
@@ -6300,6 +6299,11 @@ packages:
       sass-embedded:
         optional: true
 
+  sass@1.77.8:
+    resolution: {integrity: sha512-4UHg6prsrycW20fqLGPShtEvo/WyHRVRHwOP4DzkUrObWoWI05QBSfzU71TVB7PFaL104TwNaHpjlWXAZbQiNQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+
   sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
 
@@ -6328,10 +6332,6 @@ packages:
 
   scroll-into-view-if-needed@3.1.0:
     resolution: {integrity: sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==}
-
-  scss@0.2.4:
-    resolution: {integrity: sha512-4u8V87F+Q/upVhUmhPnB4C1R11xojkRkWjExL2v0CX2EXTg18VrKd+9JWoeyCp2VEMdSpJsyAvVU+rVjogh51A==}
-    engines: {node: '>= 0.2.0'}
 
   select-hose@2.0.0:
     resolution: {integrity: sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg==}
@@ -12524,6 +12524,8 @@ snapshots:
 
   immer@9.0.21: {}
 
+  immutable@4.3.7: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -13716,8 +13718,6 @@ snapshots:
       es-object-atoms: 1.0.0
 
   obuf@1.1.2: {}
-
-  ometa@0.2.2: {}
 
   on-finished@2.4.1:
     dependencies:
@@ -15020,11 +15020,19 @@ snapshots:
 
   sanitize.css@13.0.0: {}
 
-  sass-loader@12.6.0(webpack@5.93.0):
+  sass-loader@12.6.0(sass@1.77.8)(webpack@5.93.0):
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
       webpack: 5.93.0
+    optionalDependencies:
+      sass: 1.77.8
+
+  sass@1.77.8:
+    dependencies:
+      chokidar: 3.6.0
+      immutable: 4.3.7
+      source-map-js: 1.2.0
 
   sax@1.2.4: {}
 
@@ -15064,10 +15072,6 @@ snapshots:
   scroll-into-view-if-needed@3.1.0:
     dependencies:
       compute-scroll-into-view: 3.1.0
-
-  scss@0.2.4:
-    dependencies:
-      ometa: 0.2.2
 
   select-hose@2.0.0: {}
 
