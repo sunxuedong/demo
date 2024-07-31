@@ -1,0 +1,18 @@
+[
+  {
+    "label": "G6",
+    "value": "G6",
+    "children": [
+      {
+        "label": "Tooltip（提示）",
+        "value": "tooltip",
+        "componentPath": ""
+      },
+      {
+        "label": "Anchor（锚点）",
+        "value": "anchor",
+        "componentPath": ""
+      }
+    ]
+  }
+]
