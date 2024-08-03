@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.scss,.less --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
     "format": "prettier --write --cache .",
-    "format2lint": "npm run format & npm run lint:fix"
+    "format2lint": "npm run format & npm run lint:fix",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "https://github.com/sunxuedong",
@@ -22,6 +23,14 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^4.0.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.3.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,json}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

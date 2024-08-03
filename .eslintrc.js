@@ -1,15 +1,12 @@
 module.exports = {
   // root: true,
   env: {
+    jest: true, // 关键在这
     browser: true,
     node: true,
     es2021: true,
   },
-  extends: [
-    "eslint:recommended",
-    "asdfasdfasdsadfasdfsdffasdfasdfasdsadfasdfsdffasdfasdfasdsadfasdfsdffasdfasdfasdsadfasdfsdffasdfasdfasdsadfasdfsdffasdfasdfasdsadfasdfsdff",
-    "prettier",
-  ],
+  extends: ["eslint:recommended", "prettier"],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
@@ -18,7 +15,7 @@ module.exports = {
       tsx: true,
     },
   },
-  plugins: ["prettier"],
+  plugins: ["prettier", "json"],
   rules: {
     "no-var": "error",
     "prettier/prettier": "error",
