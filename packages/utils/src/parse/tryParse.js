@@ -1,4 +1,4 @@
-export function tryParse(jsonString, defaultValue = {}) {
+export default function tryParse(jsonString, defaultValue = {}) {
   try {
     return JSON.parse(jsonString);
   } catch (err) {

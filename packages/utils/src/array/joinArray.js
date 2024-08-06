@@ -1,8 +1,6 @@
-export function getArray(data, defaultValue = []) {
-  return Array.isArray(data) ? data : defaultValue;
-}
+import getArray from "./getArray";
 
-export function joinArray({
+export default function joinArray({
   data,
   defaultValue = [],
   symbol = ",",

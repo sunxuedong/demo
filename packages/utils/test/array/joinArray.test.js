@@ -1,14 +1,4 @@
-import { getArray, joinArray } from "@/array";
-
-describe("testing getArray method", () => {
-  test("getting a real array", () => {
-    expect(getArray([1, 2, 3])).toEqual([1, 2, 3]);
-  });
-
-  test("getting default empty array by input {}", () => {
-    expect(getArray({})).toEqual([]);
-  });
-});
+import joinArray from "@/array/joinArray";
 
 describe("testing joinArray function", () => {
   test("should join a normal array with default comma", () => {

@@ -1,4 +1,4 @@
-import { tryParse } from "@/parse";
+import tryParse from "@/parse/tryParse";
 
 describe("testing parse", () => {
   describe("testing tryParse method", () => {

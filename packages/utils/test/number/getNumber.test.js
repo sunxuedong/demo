@@ -1,4 +1,4 @@
-import { getNumber } from "@/number";
+import getNumber from "@/number/getNumber";
 
 describe("testing number", () => {
   describe("testing getNumber method", () => {
