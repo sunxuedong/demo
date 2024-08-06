@@ -1,5 +1,5 @@
 // 拷贝树
-export function handleFilterData({
+export default function handleFilterData({
   root,
   cb = () => true,
   children = [],

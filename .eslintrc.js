@@ -21,5 +21,6 @@ module.exports = {
     "prettier/prettier": "error",
     "no-console": "error",
     "no-debugger": "error",
+    "no-unused-vars": "off", // 可以关闭内置的 no-unused-vars 规则，以避免与插件冲突,
   },
 };

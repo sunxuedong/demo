@@ -7,7 +7,7 @@ export default function filterTree({
 
   const rootIsArray = Array.isArray(root);
   const arrayRoot = rootIsArray ? root : [root];
-  const copy = ({ node = {} } = {}) => {
+  const copy = ({ node }) => {
     return {
       ...node,
       children: [],
@@ -15,7 +15,7 @@ export default function filterTree({
   };
 
   const stack = []; // 使用一个栈来辅助迭代
-  let filteredTree = null;
+  let filteredTree = rootIsArray ? [] : null;
   const filteredStack = [];
   arrayRoot.forEach(node => {
     if (condition({ node, level: rootLevel })) {
@@ -26,9 +26,6 @@ export default function filterTree({
       filteredStack.push({ node: filteredNode, level: rootLevel });
 
       if (rootIsArray) {
-        if (!filteredTree) {
-          filteredTree = [];
-        }
         filteredTree.push(filteredNode);
       } else {
         filteredTree = filteredNode;

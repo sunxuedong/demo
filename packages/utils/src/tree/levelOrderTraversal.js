@@ -5,7 +5,7 @@
  * @returns {Array|Object}
  */
 
-export default function levelOrderTraversal({ root, cb, rootLevel = 1 } = {}) {
+export default function levelOrderTraversal({ root, cb, rootLevel = 1 }) {
   // 空树,直接返回
   if (!root) return;
 
