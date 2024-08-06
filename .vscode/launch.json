@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/apps/react18",
-      "name": "react18:start",
+      "name": "apps/react18:start",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run-script", "start"],
       "skipFiles": ["<node_internals>/**"]
@@ -17,7 +17,7 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/apps/vue2",
-      "name": "vue2:serve",
+      "name": "apps/vue2:serve",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run-script", "serve"],
       "skipFiles": ["<node_internals>/**"]
@@ -26,9 +26,18 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/apps/vue3",
-      "name": "vue3:serve",
+      "name": "apps/vue3:serve",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run-script", "serve"],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/packages/utils",
+      "name": "packages/utils:test",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "test"],
       "skipFiles": ["<node_internals>/**"]
     }
   ]
