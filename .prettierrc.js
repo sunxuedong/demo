@@ -5,5 +5,4 @@ module.exports = {
   singleQuote: false,
   bracketSpacing: true,
   bracketSameLine: false,
-  endOfLine: "auto",
 };
