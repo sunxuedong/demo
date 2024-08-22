@@ -10,7 +10,7 @@ indent_style = space
 tab_width = 4
 max_line_length = 80
 
-[*.{js,json,ts,tsx,vue}]
+[*.{js,json,ts,tsx,vue,mjs,cjs}]
 indent_style = space
 indent_size = 2
 

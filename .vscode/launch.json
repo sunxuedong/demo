@@ -39,6 +39,15 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run-script", "test"],
       "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Run ESLint Fix",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpx",
+      "program": "eslint",
+      "args": ["--fix"],
+      "console": "integratedTerminal"
     }
   ]
 }
