@@ -25,7 +25,7 @@ export default function preorderTraversal({ root, cb, rootLevel = 1 }) {
         node: child,
         level: level + 1,
         parent,
-        parentList: [parent, ...parentList],
+        parentList: [...parentList, parent],
       });
     }
   }
