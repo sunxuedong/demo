@@ -123,6 +123,9 @@ importers:
       '@antv/g6':
         specifier: ^4.8.24
         version: 4.8.24
+      '@sunxuedong/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       ant-design-vue:
         specifier: 4.x
         version: 4.2.3(vue@3.4.31(typescript@5.4.5))

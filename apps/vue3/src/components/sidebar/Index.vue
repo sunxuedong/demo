@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 
-import { getMenuCfg } from './utils/config'
+import { useMenuStore } from '@/stores/menu'
 
 import type { Item } from './types'
 
+const { menu } = storeToRefs(useMenuStore())
 const router = useRouter()
-
-const menuCfg = ref(getMenuCfg())
 
 const pathname = window.location.pathname
 const defaultOpenKeys = ref(pathname.slice(1).split('/'))
@@ -25,7 +25,7 @@ const clickMenu = ({ item }: { item: Item }) => {
     v-model:openKeys="defaultOpenKeys"
     mode="inline"
     theme="dark"
-    :items="menuCfg"
+    :items="menu"
     @click="clickMenu"
   ></a-menu>
 </template>
