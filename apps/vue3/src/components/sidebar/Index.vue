@@ -2,20 +2,19 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+// @ts-ignore
+import { generateCamelCaseCombinations } from '@sunxuedong/utils'
 
 import { useMenuStore } from '@/stores/menu'
 
-import type { Item } from './types'
-
-const { menu } = storeToRefs(useMenuStore())
+const { menuTree } = storeToRefs(useMenuStore())
 const router = useRouter()
 
 const pathname = window.location.pathname
-const defaultOpenKeys = ref(pathname.slice(1).split('/'))
+const defaultOpenKeys = ref(generateCamelCaseCombinations({ data: pathname.slice(1).split('/') }))
 const defaultSelectedKeys = ref(defaultOpenKeys.value.slice(-1))
-const clickMenu = ({ item }: { item: Item }) => {
-  const { name } = item
-  router.push({ name })
+const clickMenu = ({ key }: { key: string }) => {
+  router.push({ name: key })
 }
 </script>
 
@@ -25,7 +24,7 @@ const clickMenu = ({ item }: { item: Item }) => {
     v-model:openKeys="defaultOpenKeys"
     mode="inline"
     theme="dark"
-    :items="menu"
+    :items="menuTree"
     @click="clickMenu"
   ></a-menu>
 </template>

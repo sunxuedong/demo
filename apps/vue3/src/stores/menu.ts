@@ -4,11 +4,11 @@ import type { MenuData } from './menu.types'
 
 export const useMenuStore = defineStore('menu', () => {
   // 明确指定 menu 的类型为 MenuData[]
-  const menu = ref<MenuData[]>([])
+  const menuTree = ref<MenuData[]>([])
 
   const setMenu = ({ menuData }: { menuData: MenuData[] }) => {
-    menu.value = menuData
+    menuTree.value = menuData
   }
 
-  return { menu, setMenu }
+  return { menuTree, setMenu }
 })

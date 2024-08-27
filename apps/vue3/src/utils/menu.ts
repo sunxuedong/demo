@@ -1,4 +1,5 @@
-import { preOrderTraversal } from '@sunxuedong/utils'
+// @ts-ignore
+import { postOrderTraversal, toCamelCase } from '@sunxuedong/utils'
 import { useMenuStore } from '@/stores/menu'
 
 interface Menu {}
@@ -9,7 +10,9 @@ const node: { label: string; [key: string]: any } = {
 }
 
 const formatMenu = ({ menu }: { menu: Menu[] }) => {
-  preOrderTraversal({
+  menu = JSON.parse(JSON.stringify(menu))
+
+  postOrderTraversal({
     root: menu,
     cb: (context: {
       node: typeof node
@@ -18,15 +21,15 @@ const formatMenu = ({ menu }: { menu: Menu[] }) => {
       parentList: (typeof node)[]
     }) => {
       const { node, parentList } = context
-      console.log('node', node)
-      console.log('parentList', parentList)
+      node.key = toCamelCase({ data: [...parentList, node].map((item) => item.key) })
     }
   })
+
+  return menu
 }
 
 export const setMenuInStore = ({ menu }: { menu: Menu[] }) => {
-  menu = JSON.parse(JSON.stringify(menu))
-  formatMenu({ menu })
+  menu = formatMenu({ menu })
   const { setMenu } = useMenuStore()
   setMenu({ menuData: menu })
 }

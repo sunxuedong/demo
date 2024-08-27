@@ -2,27 +2,27 @@ export const getMenuCfg = () => {
   const menu = [
     {
       label: 'G6',
-      value: 'g6',
+      key: 'g6',
       children: [
         {
           label: 'Tooltip（提示）',
-          value: 'tooltip',
+          key: 'tooltip',
           children: [
             {
               label: '使用tooltip插件',
-              value: 'plugin',
+              key: 'plugin',
               componentPath: 'g6/tooltip/plugin'
             },
             {
               label: '使用自定义组件',
-              value: 'custom',
+              key: 'custom',
               componentPath: 'g6/tooltip/custom'
             }
           ]
         },
         {
           label: 'anchor（锚点）',
-          value: 'anchor',
+          key: 'anchor',
           componentPath: 'g6/tooltip/plugin'
         }
       ]
