@@ -1,5 +1,5 @@
 // toCamelCase.test.js
-const toCamelCase = require("@/string/toCamelCase");
+import toCamelCase from "@/string/toCamelCase";
 
 test("should convert an array of strings to camel case", () => {
   expect(toCamelCase({ data: ["hello", "world", "from", "openai"] })).toBe(
