@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Topo from '@/components/topo/Index.vue'
+</script>
 
 <template>
-  <div class="greetings">
-    <h3>tooltip custom</h3>
+  <div class="g6-tooltip-custom">
+    <Topo />
   </div>
 </template>
 
