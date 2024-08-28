@@ -15,10 +15,10 @@ import router from './router'
 const app = createApp(App)
 
 app.use(createPinia())
-app.use(router)
-
 const menu = getMenuCfg()
 setMenuInStore({ menu })
-initRoutes({ menu })
+
+initRoutes({ menu, router })
+app.use(router)
 
 app.use(Antd).mount('#app')

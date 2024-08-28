@@ -11,19 +11,19 @@ export const getMenuCfg = () => {
             {
               label: '使用tooltip插件',
               key: 'plugin',
-              componentPath: 'g6/tooltip/plugin'
+              componentPath: 'g6/tooltip/plugin/Index.vue'
             },
             {
               label: '使用自定义组件',
               key: 'custom',
-              componentPath: 'g6/tooltip/custom'
+              componentPath: 'g6/tooltip/custom/Index.vue'
             }
           ]
         },
         {
           label: 'anchor（锚点）',
           key: 'anchor',
-          componentPath: 'g6/tooltip/plugin'
+          componentPath: 'g6/tooltip/plugin/Index.vue'
         }
       ]
     }
