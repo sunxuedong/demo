@@ -14,13 +14,16 @@ export default [
       jest: jestPlugin,
     },
     languageOptions: {
-      ecmaVersion: 12,
+      ecmaVersion: "latest",
       sourceType: "module", // 使用 ES 模块系统
       globals: {
         ...jestPlugin.environments.globals.globals,
         module: "readonly", // 声明 `module` 是只读全局变量
         require: "readonly", // 声明 `require` 是只读全局变量
         process: "readonly", // 声明 Node.js 的 `process` 也是全局的
+        ResizeObserver: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
       },
     },
     rules: {

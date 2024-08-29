@@ -2,32 +2,28 @@
 import generateCamelCaseCombinations from "@/string/generateCamelCaseCombinations";
 
 test("should generate all camelCase combinations from the first word", () => {
-  expect(generateCamelCaseCombinations(["hello", "world", "guys"])).toEqual([
-    "hello",
-    "helloWorld",
-    "helloWorldGuys",
-  ]);
+  expect(
+    generateCamelCaseCombinations({ data: ["hello", "world", "guys"] })
+  ).toEqual(["hello", "helloWorld", "helloWorldGuys"]);
 });
 
 test("should handle an array with one word", () => {
-  expect(generateCamelCaseCombinations(["hello"])).toEqual(["hello"]);
+  expect(generateCamelCaseCombinations({ data: ["hello"] })).toEqual(["hello"]);
 });
 
 test("should handle an empty array", () => {
-  expect(generateCamelCaseCombinations([])).toEqual([]);
+  expect(generateCamelCaseCombinations({ data: [] })).toEqual([]);
 });
 
 test("should handle an array with two words", () => {
-  expect(generateCamelCaseCombinations(["hello", "world"])).toEqual([
+  expect(generateCamelCaseCombinations({ data: ["hello", "world"] })).toEqual([
     "hello",
     "helloWorld",
   ]);
 });
 
 test("should handle an array with three words of mixed case", () => {
-  expect(generateCamelCaseCombinations(["HeLLo", "WoRLD", "GUYS"])).toEqual([
-    "hello",
-    "helloWorld",
-    "helloWorldGuys",
-  ]);
+  expect(
+    generateCamelCaseCombinations({ data: ["HeLLo", "WoRLD", "GUYS"] })
+  ).toEqual(["hello", "helloWorld", "helloWorldGuys"]);
 });
