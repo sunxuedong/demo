@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" name="Frame">
 import Sidebar from '../sidebar/Index.vue'
 </script>
 

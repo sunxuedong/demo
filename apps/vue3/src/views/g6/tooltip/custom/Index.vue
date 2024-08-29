@@ -1,10 +1,11 @@
-<script setup lang="ts">
+<script setup lang="ts" name="Custom">
 import Topo from '@/components/topo/Index.vue'
+import { data } from './utils/data'
 </script>
 
 <template>
   <div class="g6-tooltip-custom">
-    <Topo />
+    <Topo :data="data" />
   </div>
 </template>
 

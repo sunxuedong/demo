@@ -132,6 +132,9 @@ importers:
       pinia:
         specifier: ^2.1.7
         version: 2.2.0(typescript@5.4.5)(vue@3.4.31(typescript@5.4.5))
+      unplugin-vue-setup-extend-plus:
+        specifier: ^1.0.1
+        version: 1.0.1
       uuid:
         specifier: ^10.0.0
         version: 10.0.0
@@ -5767,6 +5770,10 @@ packages:
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
 
+  magic-string@0.26.7:
+    resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
+    engines: {node: '>=12'}
+
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
@@ -7606,7 +7613,7 @@ packages:
     engines: {node: '>= 8'}
 
   sourcemap-codec@1.4.8:
-    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==, tarball: https://r2.cnpmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz}
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     deprecated: Please use @jridgewell/sourcemap-codec instead
 
   spdx-correct@3.2.0:
@@ -8173,6 +8180,9 @@ packages:
         optional: true
       '@nuxt/kit':
         optional: true
+
+  unplugin-vue-setup-extend-plus@1.0.1:
+    resolution: {integrity: sha512-mW2IzkyJITyspAV/LEdnEyE1CJip9jB5fCeaVv7Q6X0oJyDrOxXoB+jyet0q5pRJNjErbjQx950/8NPTvbqLTQ==}
 
   unplugin@1.12.0:
     resolution: {integrity: sha512-KeczzHl2sATPQUx1gzo+EnUkmN4VmGBYRRVOZSGvGITE9rGHRDGqft6ONceP3vgXcyJ2XjX5axG5jMWUwNCYLw==}
@@ -16797,6 +16807,10 @@ snapshots:
     dependencies:
       sourcemap-codec: 1.4.8
 
+  magic-string@0.26.7:
+    dependencies:
+      sourcemap-codec: 1.4.8
+
   magic-string@0.30.10:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -19451,6 +19465,12 @@ snapshots:
     transitivePeerDependencies:
       - rollup
       - supports-color
+
+  unplugin-vue-setup-extend-plus@1.0.1:
+    dependencies:
+      '@vue/compiler-sfc': 3.4.31
+      magic-string: 0.26.7
+      unplugin: 1.12.0
 
   unplugin@1.12.0:
     dependencies:
