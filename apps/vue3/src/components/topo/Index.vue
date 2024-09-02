@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   showMiniMap: false
 })
 
-const emit = defineEmits([''])
+const emit = defineEmits(['initEvent'])
 
 const rootDom = ref('')
 const topoDom = ref('')

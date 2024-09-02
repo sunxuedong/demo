@@ -1,6 +1,7 @@
 <script setup lang="ts" name="G6TooltipPlugin">
 import { ref } from 'vue'
 import Topo from '@/components/topo/Index.vue'
+import type { Graph, Event } from '@/components/topo/utils/types'
 import { data } from './utils/data'
 import { getTooltip } from './utils/tooltip'
 
@@ -19,7 +20,7 @@ const config = ref({
       'drag-node',
       {
         type: 'edge-tooltip',
-        formatText: function formatText(model) {
+        formatText: function formatText(model: { description: string }) {
           var text = 'description: ' + model.description
           return text
         },
@@ -33,7 +34,7 @@ const config = ref({
   plugins: [getTooltip()]
 })
 
-const requestData = ({ evt }) => {
+const requestData = ({ evt }: { evt: Event }) => {
   const { item } = evt
   const model = item.getModel()
 
@@ -43,11 +44,11 @@ const requestData = ({ evt }) => {
   })
 }
 
-const initEvent = ({ graph }) => {
+const initEvent = ({ graph }: { graph: Graph }) => {
   let id = 0
   const tooltipDom = document.getElementsByClassName('g6-component-tooltip')[0]
 
-  graph.on('node:mouseenter', (evt) => {
+  graph.on('node:mouseenter', (evt: Event) => {
     const innerId = ++id
     console.log('node:mouseenter')
 
@@ -57,7 +58,7 @@ const initEvent = ({ graph }) => {
     })
   })
 
-  graph.on('node:mouseleave', (evt) => {
+  graph.on('node:mouseleave', (evt: Event) => {
     tooltipDom.innerHTML = ``
   })
 }

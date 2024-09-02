@@ -5,8 +5,8 @@ export interface Props {
 }
 
 export interface G6Data {
-  nodes: []
-  edges: []
+  nodes: {}[]
+  edges: {}[]
 }
 
 export interface Graph {
@@ -15,12 +15,13 @@ export interface Graph {
   data: Function
   render: Function
   changeData: Function
+  on: Function
 }
 
 export type container = HTMLDivElement | string
 
 export interface InitParamsConfig {
-  container: container
+  container?: container
   plugins: Minimap[]
 }
 
@@ -40,4 +41,8 @@ export interface Minimap {}
 
 export interface G6Instance {
   setMiniMapPlugin: Function
+}
+
+export interface Event {
+  item: { getModel: Function }
 }
