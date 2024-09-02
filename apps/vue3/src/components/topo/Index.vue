@@ -15,15 +15,21 @@ const props = withDefaults(defineProps<Props>(), {
   showMiniMap: false
 })
 
+const emit = defineEmits([''])
+
+const rootDom = ref('')
 const topoDom = ref('')
 const minimapDom = ref('')
 const id = ref(uuidv4())
 const g6Ref = ref(new G6Class())
 const resizeRef = ref(new ResizeObserverClass())
 
-watch(props.data, (val) => {
-  g6Ref.value.changeData(val)
-})
+watch(
+  () => props.data,
+  (val) => {
+    g6Ref.value.changeData(val)
+  }
+)
 
 const initG6 = () => {
   const g6Ins = g6Ref.value
@@ -41,6 +47,8 @@ const initG6 = () => {
     config,
     data: props.data
   })
+
+  emit('initEvent', { g6Ins, graph: g6Ins.graph })
 }
 
 const destoryG6 = () => {
@@ -49,21 +57,20 @@ const destoryG6 = () => {
 }
 
 const handleChangeSize = async () => {
-  const { rootDom, topoDom } = this.$refs
-  const graph = this.G6UtilIns.graph
+  const graph = g6Ref.value.graph
 
   if (!graph || graph.get('destroyed')) return
-  if (!rootDom || !rootDom.offsetWidth || !rootDom.offsetHeight) return
+  if (!rootDom.value || !rootDom.value.offsetWidth || !rootDom.value.offsetHeight) return
 
-  const originalDisplay = topoDom.style.display
+  const originalDisplay = topoDom.value.style.display
 
-  topoDom.style.display = 'none'
+  topoDom.value.style.display = 'none'
 
   await timeoutPromise()
 
-  const { offsetWidth, offsetHeight } = rootDom
+  const { offsetWidth, offsetHeight } = rootDom.value
 
-  topoDom.style.display = originalDisplay
+  topoDom.value.style.display = originalDisplay
 
   await timeoutPromise()
 
@@ -75,7 +82,7 @@ onMounted(() => {
 
   resizeRef.value.addResizeListener({
     dom: topoDom.value,
-    handler: this.changeSize
+    handler: handleChangeSize
   })
 })
 
@@ -87,7 +94,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="topo">
+  <div class="topo" ref="rootDom">
     <div :id="id" class="topo-container" ref="topoDom"></div>
     <div v-show="showMiniMap" id="minimap" class="minimap" ref="minimapDom"></div>
   </div>
