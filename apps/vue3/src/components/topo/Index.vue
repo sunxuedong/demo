@@ -7,11 +7,11 @@ import { ResizeObserverClass, timeoutPromise } from '@sunxuedong/utils'
 
 import G6Class from './utils/G6Class'
 import { getPlugins } from './utils/plugins'
-import type { G6Data, InitParamsConfig, Props } from './utils/types'
+import type { G6Data, PropsConfig, Props } from './utils/types'
 
 const props = withDefaults(defineProps<Props>(), {
   data: () => ({}) as G6Data,
-  config: () => ({}) as InitParamsConfig,
+  config: () => ({}) as PropsConfig,
   showMiniMap: false
 })
 
@@ -35,7 +35,6 @@ const initG6 = () => {
   const g6Ins = g6Ref.value
   const config = { ...props.config }
 
-  config.container = config.container ? config.container : topoDom.value
   config.plugins = config.plugins
     ? config.plugins
     : getPlugins({
@@ -44,7 +43,10 @@ const initG6 = () => {
       })
 
   g6Ins.init({
-    config,
+    config: {
+      ...config,
+      container: topoDom.value
+    },
     data: props.data
   })
 
@@ -60,17 +62,19 @@ const handleChangeSize = async () => {
   const graph = g6Ref.value.graph
 
   if (!graph || graph.get('destroyed')) return
-  if (!rootDom.value || !rootDom.value.offsetWidth || !rootDom.value.offsetHeight) return
 
-  const originalDisplay = topoDom.value.style.display
+  const rootElem = rootDom.value as unknown as HTMLElement // 使用类型断言
+  if (!rootDom.value || !rootElem.offsetWidth || !rootElem.offsetHeight) return
 
-  topoDom.value.style.display = 'none'
+  const topoElem = topoDom.value as unknown as HTMLElement // 使用类型断言
+  const originalDisplay = topoElem.style.display
+  const { offsetWidth, offsetHeight } = topoElem
+
+  topoElem.style.display = 'none'
 
   await timeoutPromise()
 
-  const { offsetWidth, offsetHeight } = rootDom.value
-
-  topoDom.value.style.display = originalDisplay
+  topoElem.style.display = originalDisplay
 
   await timeoutPromise()
 

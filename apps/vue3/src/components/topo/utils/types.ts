@@ -1,6 +1,6 @@
 export interface Props {
   data: G6Data
-  config?: InitParamsConfig
+  config?: PropsConfig
   showMiniMap?: boolean
 }
 
@@ -16,13 +16,21 @@ export interface Graph {
   render: Function
   changeData: Function
   on: Function
+  get: Function
+  changeSize: Function
+}
+
+export interface PropsConfig {
+  plugins?: {}[]
+  defaultNode?: {}
+  defaultEdge?: {}
+  modes?: {}
 }
 
 export type container = HTMLDivElement | string
 
-export interface InitParamsConfig {
-  container?: container
-  plugins: Minimap[]
+export interface InitParamsConfig extends PropsConfig {
+  container: container
 }
 
 export interface InitParams {

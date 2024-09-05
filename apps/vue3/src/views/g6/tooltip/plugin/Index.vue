@@ -25,7 +25,7 @@ const config = ref({
           return text
         },
 
-        shouldUpdate: function shouldUpdate(e) {
+        shouldUpdate: function shouldUpdate(e: Event) {
           return true
         }
       }
