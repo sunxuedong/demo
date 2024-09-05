@@ -5,7 +5,7 @@ import type { Graph, Event } from '@/components/topo/utils/types'
 import { data } from './utils/data'
 import { getTooltip } from './utils/tooltip'
 
-const config = ref({
+const config = {
   defaultNode: {
     size: [80, 40],
     shape: 'rect'
@@ -32,7 +32,7 @@ const config = ref({
     ]
   },
   plugins: [getTooltip()]
-})
+}
 
 const requestData = ({ evt }: { evt: Event }) => {
   const { item } = evt
