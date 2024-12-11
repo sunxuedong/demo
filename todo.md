@@ -45,7 +45,10 @@
     .el-table__header th:not(.is-hidden):last-child{
       border-left:1px solid var(--header-row-class-name-border-color);
     }
-
+41、锁屏
+42、放大
+43、dialog开启GPU加速
+44、debounce、throttle添加类
 
 
 
