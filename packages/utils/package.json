@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test2": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,5 +15,8 @@
     "@babel/preset-env": "^7.24.8",
     "babel-jest": "^27.5.1",
     "jest": "^27.4.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
